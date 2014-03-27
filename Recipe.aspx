@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Table] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Table] ([RecipeName], [SubmittedBy], [Ing1], [Ing2], [Ing3], [Ing4], [Ing5], [Preperation], [Notes]) VALUES (@RecipeName, @SubmittedBy, @Ing1, @Ing2, @Ing3, @Ing4, @Ing5, @Preperation, @Notes)" SelectCommand="SELECT * FROM [Table]" UpdateCommand="UPDATE [Table] SET [RecipeName] = @RecipeName, [SubmittedBy] = @SubmittedBy, [Ing1] = @Ing1, [Ing2] = @Ing2, [Ing3] = @Ing3, [Ing4] = @Ing4, [Ing5] = @Ing5, [Preperation] = @Preperation, [Notes] = @Notes WHERE [Id] = @Id">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM [Table] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Table] ([RecipeName], [SubmittedBy], [Ing1], [Ing2], [Ing3], [Ing4], [Ing5], [Preperation], [Notes]) VALUES (@RecipeName, @SubmittedBy, @Ing1, @Ing2, @Ing3, @Ing4, @Ing5, @Preperation, @Notes)" SelectCommand="SELECT * FROM [Table] WHERE ([Id] = @Id)" UpdateCommand="UPDATE [Table] SET [RecipeName] = @RecipeName, [SubmittedBy] = @SubmittedBy, [Ing1] = @Ing1, [Ing2] = @Ing2, [Ing3] = @Ing3, [Ing4] = @Ing4, [Ing5] = @Ing5, [Preperation] = @Preperation, [Notes] = @Notes WHERE [Id] = @Id">
         <DeleteParameters>
             <asp:Parameter Name="Id" Type="Int32" />
         </DeleteParameters>
@@ -19,6 +19,9 @@
             <asp:Parameter Name="Preperation" Type="String" />
             <asp:Parameter Name="Notes" Type="String" />
         </InsertParameters>
+        <SelectParameters>
+            <asp:QueryStringParameter DefaultValue="1" Name="Id" QueryStringField="Id" Type="Int32" />
+        </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="RecipeName" Type="String" />
             <asp:Parameter Name="SubmittedBy" Type="String" />
