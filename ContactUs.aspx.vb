@@ -10,7 +10,7 @@ Partial Class ContactUs
         Dim objMail As New MailMessage
         Dim client As New SmtpClient()
 
-        objMail.To.Add(New MailAddress("test@test.com"))
+        objMail.To.Add(New MailAddress("ui.6k183@gmail.com"))
         objMail.From = New MailAddress(TBEmail.Text)
         objMail.Subject = "Contact Us Response"
         objMail.Body = TBMessage.Text.ToString()
